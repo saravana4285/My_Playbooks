@@ -1,0 +1,8 @@
+---
+name: Demo on variables
+hosts: web
+tasks:	
+  -  name: invoke variables
+     yum:
+       name: “{{ package }}”
+       state: latest          

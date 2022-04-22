@@ -1,0 +1,26 @@
+Example for loop [ vars and loop]
+
+---
+- name: loop play
+  hosts: servera.lab.example.com
+  vars:
+     - users:
+            - name : test-user1
+            - uid : 345
+            - name: test-user2
+            - uid: 346
+            - name: test-user3
+            - uid: 347
+      tasks:
+         - name : install package
+            yum:
+                 name:
+                       - httpd
+                       - postfix
+                 state: latest
+          - name: user creation
+            user:
+                  name: “{{ item.name }}”
+                  uid : “{{ item.uid }}”
+                   state: present
+             loop: “ {{ users }}”

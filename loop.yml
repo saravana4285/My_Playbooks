@@ -1,10 +1,11 @@
 ---
-hosts: all
-tasks:
-  - name : List of db users
-    debug :
-       msg: “{{ item }}”
-    loop:
-      - db_admin
-      - db_user
-      - db_backupuser
+- name: loop
+  hosts: all 
+  tasks:
+    - name : List of db users
+      debug :
+         msg: “{{ item }}”
+      loop:
+        - db_admin
+        - db_user
+        - db_backupuser

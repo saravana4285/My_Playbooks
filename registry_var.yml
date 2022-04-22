@@ -1,0 +1,10 @@
+---
+name: play to demo register variables
+hosts: web
+tasks:
+  - name : Tasks to display variables
+    command: whoami
+    register: grape
+  - name: debug the output
+    debug:
+      var: grape
